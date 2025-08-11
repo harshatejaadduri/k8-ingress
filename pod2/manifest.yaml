@@ -1,18 +1,65 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+ name: pod-2
+ labels:
+  type: ingress-demo
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+   type: ingress-demo
+ template:
+  metadata:
+   name: pod-2
+   labels: 
+    type: ingress-demo
+  spec:
+   containers:
+    - name: pod-2
+      image: harshatejaadduri/app2:v1   
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+ name: pod-2
+ labels:
+  type: ingress-demo
+spec:
+ selector:
+  type: ingress-demo
+ ports:
+  - protocol: TCP
+    port: 80
+    targetport: 80
+
+---
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: pod-2
+  labels: 
+   type: ingress-demo
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    alb.ingress.kubernetes.io/listen-ports:  '[{"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/group.name: roboshop
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:513993748676:certificate/23f90ae2-782c-432d-837c-3770b5699b3f
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+
 spec:
-  ingressClassName: lb
+  ingressClassName: alb
   rules:
-  - http:
+  - host: "app1.84dev.store"
+    http:
       paths:
-      - path: /testpath
-        pathType: Prefix
+      - pathType: Prefix
+        path: "/"
         backend:
           service:
-            name: test
+            name: pod-2
             port:
               number: 80

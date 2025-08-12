@@ -46,14 +46,14 @@ metadata:
   annotations:
     alb.ingress.kubernetes.io/listen-ports:  '[{"HTTPS": 443}]'
     alb.ingress.kubernetes.io/group.name: roboshop
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:513993748676:certificate/09dbc872-d9e7-4ea0-833d-321a7a9671aa
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:513993748676:certificate/09dbc872-d9e7-4ea0-833d-321a7a9671aa # give your certificate arn no
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
 
 spec:
   ingressClassName: alb
   rules:
-  - host: "app1.84dev.store"
+  - host: "app1.84dev.store" # mention your host name 
     http:
       paths:
       - pathType: Prefix
@@ -62,4 +62,4 @@ spec:
           service:
             name: pod-1
             port:
-              number: 80
+              number: 80 #target port no

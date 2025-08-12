@@ -53,7 +53,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-  - host: "app1.84dev.store"
+  - host: "app2.84dev.store"
     http:
       paths:
       - pathType: Prefix

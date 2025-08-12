@@ -20,7 +20,7 @@
 
 Here we used annotions like
 ```
- alb.ingress.kubernetes.io/listen-ports:  '[{"HTTP": 80}]' or  '[{"HTTPS": 443}]'
+alb.ingress.kubernetes.io/listen-ports:  '[{"HTTP": 80}]' or  '[{"HTTPS": 443}]'
 alb.ingress.kubernetes.io/group.name: # any name this creates only one dns for all target groups
 alb.ingress.kubernetes.io/certificate-arn:  # give your certificate arn no after creating in AWS ACM
 alb.ingress.kubernetes.io/scheme: internet-facing

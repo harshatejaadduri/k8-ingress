@@ -2,17 +2,20 @@
 
 [OIDC SETUP LINK ](https://github.com/harshatejaadduri/OIDC.git)
 
-# Create two Docker Images and push it to Docker Hub
-# Create manifestfile and kinds of Deployment, Service and Ingress
-# Examples for Deployment, Service and Ingress links
+## Create two Docker Images and push it to Docker Hub
+## Create manifestfile and kinds of Deployment, Service and Ingress
+## Examples for Deployment, Service and Ingress links
 
 [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+
 [Deployment example](https://github.com/harshatejaadduri/k8-resources/blob/main/16-deployment.yaml)
 
 [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
+
 [Service example](https://github.com/harshatejaadduri/k8-resources/blob/main/12-service.yaml)
 
 [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+
 [Annotations for Ingress Controller](https://geoffcline.github.io/aws-load-balancer-controller/guide/ingress/annotations/)
 
 Here we used annotions like

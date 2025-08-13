@@ -3,17 +3,17 @@ kind: Deployment
 metadata:
  name: pod-1
  labels:
-  type: ingress-demo
+  type: ingress-demo-pod1
 spec:
  replicas: 1
  selector:
   matchLabels:
-   type: ingress-demo
+   type: ingress-demo-pod1
  template:
   metadata:
    name: pod-1
    labels: 
-    type: ingress-demo
+    type: ingress-demo-pod1
   spec:
    containers:
     - name: pod-1
@@ -26,10 +26,10 @@ kind: Service
 metadata:
  name: pod-1
  labels:
-  type: ingress-demo
+  type: ingress-demo-pod1
 spec:
  selector:
-  type: ingress-demo
+  type: ingress-demo-pod1
  ports:
   - protocol: TCP
     port: 80
@@ -42,7 +42,7 @@ kind: Ingress
 metadata:
   name: pod-1
   labels: 
-   type: ingress-demo
+   type: ingress-demo-pod1
   annotations:
     alb.ingress.kubernetes.io/listen-ports:  '[{"HTTPS": 443}]'
     alb.ingress.kubernetes.io/group.name: roboshop
